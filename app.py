@@ -15,7 +15,7 @@ QUESTIONS=[
 'How important are surgeon training and clinical outcomes?',
 'What adoption trend do you expect over the next 3–5 years?',
 'What is the typical hospital decision-making timeline for purchasing a robotic system?']
-META={'France':('Dr. Jean Martin','Head of Urology'),'Germany':('Anna Keller','Former Hospital Procurement Director'),'UK's:('Dr. Emily Carter','Consultant Urologist')}
+META={'France':('Dr. Jean Martin','Head of Urology'),'Germany':('Anna Keller','Former Hospital Procurement Director'),'UK':('Dr. Emily Carter','Consultant Urologist')}
 ALIASES={1:['adoption','growing','uneven','concentrated'],2:['barrier','cost','funding','capital','training'],3:['roi','economic','budget','finance','cost'],4:['training','surgeon','clinical','outcome','staff','utilisation'],5:['outlook','growth','accelerate','gradual','annually'],6:['purchase','timeline','months','decision','capital cycle','procurement']}
 
 def parse(text,market):
