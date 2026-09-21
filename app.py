@@ -38,7 +38,7 @@ def parse(text,market):
     return {'entries':entries,'qa':qa,'name':META[market][0],'role':META[market][1]}
 
 def load():
-    files={'France':'Transcript_1_France.txt','Germany':'Transcript_2_Germany.txt''UK': 'Transcript_3_UK.txt'}
+    files={'France':'Transcript_1_France.txt','Germany':'Transcript_2_Germany.txt','UK':'Transcript_3_UK.txt'}
     return {m:parse((DATA/f).read_text(encoding='utf-8'),m) for m,f in files.items() if(DATA/f).exists()
 def best(doc,n):
     scored=[]
