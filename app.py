@@ -15,7 +15,7 @@ QUESTIONS=[
 'How important are surgeon training and clinical outcomes?',
 'What adoption trend do you expect over the next 3–5 years?',
 'What is the typical hospital decision-making timeline for purchasing a robotic system?']
-META={'France':('Dr. Jean Martin','Head of Urology'),'Germany':('Anna Keller','Former Hospital Procurement Director'),'United Kingdom':('Dr. Emily Carter','Consultant Urologist')}
+META={'France':('Dr. Jean Martin','Head of Urology'),'Germany':('Anna Keller','Former Hospital Procurement Director'),'UK's:('Dr. Emily Carter','Consultant Urologist')}
 ALIASES={1:['adoption','growing','uneven','concentrated'],2:['barrier','cost','funding','capital','training'],3:['roi','economic','budget','finance','cost'],4:['training','surgeon','clinical','outcome','staff','utilisation'],5:['outlook','growth','accelerate','gradual','annually'],6:['purchase','timeline','months','decision','capital cycle','procurement']}
 
 def parse(text,market):
@@ -38,13 +38,12 @@ def parse(text,market):
     return {'entries':entries,'qa':qa,'name':META[market][0],'role':META[market][1]}
 
 def load():
-    files={'France':'Transcript_1_France.txt','Germany':'Transcript_2_Germany.txt','United Kingdom':'Transcript_3_UK.txt'}
-    return {m:parse((DATA/f).read_text(encoding='utf-8'),m) for m,f in files.items() if (DATA/f).exists()}
-
+    files={'France':'Transcript_1_France.txt','Germany':'Transcript_2_Germany.txt''UK': 'Transcript_3_UK.txt'}
+    return {m:parse((DATA/f).read_text(encoding='utf-8'),m) for m,f in files.items() if(DATA/f).exists()
 def best(doc,n):
     scored=[]
     for item in doc['qa']:
-        h=(item['question']+' '+item['answer']).lower(); score=sum(h.count(x) for x in ALIASES[n]); scored.append((score,item))
+        h=(item['question']+' '+item['answer']).lower()(DATA/f).exists(); score=sum(h.count(x) for x in ALIASES[n]); scored.append((score,item))
     return sorted(scored,key=lambda x:x[0],reverse=True)[0][1]
 
 def retrieve(docs,q,k=6):
